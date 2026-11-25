@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reports - CLSMS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <nav class="sidebar" id="sidebar" aria-label="Main menu"></nav>
+
+  <main>
+    <h1>Reports</h1>
+    <noscript><p class="alert alert-error">This page needs JavaScript turned on.</p></noscript>
+    <div id="messages" aria-live="polite"></div>
+
+    <section aria-label="Summary">
+      <div class="stats" id="stats"></div>
+    </section>
+
+    <section class="card" aria-labelledby="formTitle">
+      <h2 id="formTitle">Timetable report</h2>
+      <form id="reportForm" novalidate>
+        <div class="toolbar">
+          <div class="field">
+            <label for="reportType">Report</label>
+            <select id="reportType">
+              <option value="daily">Daily timetable</option>
+              <option value="room">Room timetable</option>
+              <option value="instructor">Instructor timetable</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="target" id="targetLabel">Day</label>
+            <select id="target"></select>
+          </div>
+          <button type="submit" class="btn" id="showBtn">Show report</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="resultsTitle">
+      <h2 id="resultsTitle">Results</h2>
+      <div id="results"><p class="empty">Choose a report and press "Show report".</p></div>
+    </section>
+  </main>
+</div>
+
+<script src="api.js"></script>
+<script src="ui.js"></script>
+<script src="reports.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schedule - CLSMS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <nav class="sidebar" id="sidebar" aria-label="Main menu"></nav>
+
+  <main>
+    <h1>Weekly Schedule</h1>
+    <noscript><p class="alert alert-error">This page needs JavaScript turned on.</p></noscript>
+    <div id="messages" aria-live="polite"></div>
+
+    <section class="card" aria-label="Filters">
+      <div class="toolbar">
+        <div class="field">
+          <label for="filterRoom">Room</label>
+          <select id="filterRoom"></select>
+        </div>
+        <div class="field">
+          <label for="filterInstructor">Instructor</label>
+          <select id="filterInstructor"></select>
+        </div>
+        <div class="field">
+          <label for="filterCourse">Course</label>
+          <select id="filterCourse"></select>
+        </div>
+        <button type="button" class="btn secondary" id="clearFilters">Clear filters</button>
+      </div>
+    </section>
+
+    <div class="schedule-layout">
+    <div>
+    <p class="legend">
+      <span><span class="dot classroom"></span>Classroom</span>
+      <span><span class="dot laboratory"></span>Laboratory</span>
+      <span>Click a booking to edit or cancel it.</span>
+    </p>
+    <div class="tt-wrap" id="timetable"><p class="empty">Loading timetable...</p></div>
+    </div>
+
+    <section class="card booking-card" id="bookingCard" aria-labelledby="formTitle">
+      <h2 id="formTitle">New booking</h2>
+      <form id="bookingForm" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="fCourse">Course</label>
+            <select id="fCourse"></select>
+          </div>
+          <div class="field">
+            <label for="fInstructor">Instructor</label>
+            <select id="fInstructor"></select>
+          </div>
+          <div class="field">
+            <label for="fRoom">Room</label>
+            <select id="fRoom"></select>
+          </div>
+          <div class="field">
+            <label for="fDay">Day</label>
+            <select id="fDay"></select>
+          </div>
+          <div class="field">
+            <label for="fStart">Start time</label>
+            <input type="time" id="fStart">
+          </div>
+          <div class="field">
+            <label for="fEnd">End time</label>
+            <input type="time" id="fEnd">
+          </div>
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn" id="saveBtn">Create booking</button>
+          <button type="button" class="btn danger" id="cancelBookingBtn" hidden>Cancel this booking</button>
+          <button type="button" class="btn secondary" id="stopEditBtn" hidden>Stop editing</button>
+        </div>
+      </form>
+    </section>
+    </div>
+  </main>
+</div>
+
+<script src="api.js"></script>
+<script src="ui.js"></script>
+<script src="schedule.js"></script>
+</body>
+</html>
