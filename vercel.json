@@ -1,0 +1,10 @@
+{
+  "outputDirectory": "src/main/resources/static",
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://clsms-scheduler.onrender.com/api/:path*"
+    }
+  ]
+}
