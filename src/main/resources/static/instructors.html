@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instructors - CLSMS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <nav class="sidebar" id="sidebar" aria-label="Main menu"></nav>
+
+  <main>
+    <h1>Instructors</h1>
+    <noscript><p class="alert alert-error">This page needs JavaScript turned on.</p></noscript>
+    <div id="messages" aria-live="polite"></div>
+
+    <section class="card" aria-labelledby="formTitle">
+      <h2 id="formTitle">Add instructor</h2>
+      <form id="instructorForm" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="instructorId">Instructor ID</label>
+            <input id="instructorId" placeholder="e.g. I-004">
+          </div>
+          <div class="field">
+            <label for="fullName">Full name</label>
+            <input id="fullName">
+          </div>
+          <div class="field">
+            <label for="department">Department (optional)</label>
+            <input id="department">
+          </div>
+          <div class="field">
+            <label for="email">Email (optional)</label>
+            <input id="email" type="email">
+          </div>
+          <div class="field">
+            <label for="phone">Phone (optional)</label>
+            <input id="phone" type="tel">
+          </div>
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn" id="saveBtn">Add instructor</button>
+          <button type="button" class="btn secondary" id="stopEditBtn" hidden>Stop editing</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="listTitle">
+      <h2 id="listTitle">All instructors</h2>
+      <div class="toolbar" style="margin-bottom:12px">
+        <div class="field">
+          <label for="search">Search</label>
+          <input id="search" type="search" placeholder="ID, name or department">
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Name</th><th>Department</th><th>Email</th><th>Phone</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="api.js"></script>
+<script src="ui.js"></script>
+<script src="instructors.js"></script>
+</body>
+</html>
