@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rooms - CLSMS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+  <nav class="sidebar" id="sidebar" aria-label="Main menu"></nav>
+
+  <main>
+    <h1>Rooms</h1>
+    <noscript><p class="alert alert-error">This page needs JavaScript turned on.</p></noscript>
+    <div id="messages" aria-live="polite"></div>
+
+    <section class="card" aria-labelledby="formTitle">
+      <h2 id="formTitle">Add room</h2>
+      <form id="roomForm" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="roomId">Room ID</label>
+            <input id="roomId" placeholder="e.g. C-301">
+          </div>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" placeholder="e.g. Classroom 301">
+          </div>
+          <div class="field">
+            <label for="type">Type</label>
+            <select id="type">
+              <option value="CLASSROOM">Classroom</option>
+              <option value="LABORATORY">Laboratory</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="location">Location</label>
+            <input id="location" placeholder="e.g. Main Building - 3rd Floor">
+          </div>
+          <div class="field">
+            <label for="capacity">Capacity</label>
+            <input id="capacity" type="number" step="1">
+          </div>
+          <div class="field">
+            <label for="description">Description (optional)</label>
+            <input id="description">
+          </div>
+          <div class="field checkbox" id="activeField" hidden>
+            <input id="active" type="checkbox" checked>
+            <label for="active">Active (can be booked)</label>
+          </div>
+        </div>
+        <div class="actions">
+          <button type="submit" class="btn" id="saveBtn">Add room</button>
+          <button type="button" class="btn secondary" id="stopEditBtn" hidden>Stop editing</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="card" aria-labelledby="listTitle">
+      <h2 id="listTitle">All rooms</h2>
+      <div class="toolbar" style="margin-bottom:12px">
+        <div class="field">
+          <label for="search">Search</label>
+          <input id="search" type="search" placeholder="ID, name, location or type">
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>ID</th><th>Name</th><th>Type</th><th>Location</th><th>Capacity</th><th>Status</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="api.js"></script>
+<script src="ui.js"></script>
+<script src="rooms.js"></script>
+</body>
+</html>
